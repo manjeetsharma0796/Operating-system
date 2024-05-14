@@ -1,28 +1,24 @@
-Linear Search - Numbers
-arr=(10 20 30 40 50 60)
-echo "Array elements are: "
-for element in "${arr[@]}"; do
-echo "$element"
-done
-
-echo "Enter which element you want to find"
-read find
-
-
+#LINEAR NUMBER SEARCH
 index=-1
-for ((i=0; i<${#arr[@]}; i++)); do
-	if [ $find -eq ${arr[$i]} ]; then
-	index=$((i))
-	break
-	
-	else
-	 continue
-	fi
+echo "Enter element you want to search"
+read elementToFind
+echo "Enter array elements"
+read -a arr
+
+for ((i=0 ; i< ${#arr[@]};i++));
+do 
+	#echo "$i"
+    if (( elementToFind == ${arr[i]} )); then
+        index=$i
+        break
+    else 
+        continue
+    fi
 done
 
-if [ $index -ne -1 ]; then
 
-	echo "Elements found at index position $index"
-else
-	echo "Elements not found"
+if (( index == -1)); then
+    echo "Element not found"
+else 
+    echo "Element found at $index"
 fi
